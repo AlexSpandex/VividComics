@@ -5,6 +5,7 @@ import { View, Image, FlatList, TouchableOpacity } from 'react-native';
 const ComicBookViewer = ({ route }) => {
   const { comic } = route.params;
   const [currentPage, setCurrentPage] = useState(0);
+  const [darkMode, setDarkMode] = useState(true); // State to manage dark mode
 
   // Function to handle page changes
   const onPageChange = (index) => {
@@ -12,7 +13,7 @@ const ComicBookViewer = ({ route }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, darkMode && styles.darkModeContainer]}>
       <FlatList
         horizontal
         data={comic.pages}
@@ -30,8 +31,11 @@ const ComicBookViewer = ({ route }) => {
 const styles = {
   container: {
     flex: 1,
-    backgroundColor: '#F2D85E',
+    backgroundColor: '#F2D85E', // Default light mode background
     alignItems: 'center',
+  },
+  darkModeContainer: {
+    backgroundColor: '#1E1E1E', // Only the background becomes dark
   },
   pageImage: {
     width: 300,

@@ -35,6 +35,18 @@ const data = [
       require('../assets/images/Ultimate/Ultimate-Spider-Man-v06---Venom-(2007)-(Digital)-(Asgard-Empire)-002.jpg'),
       require('../assets/images/Ultimate/Ultimate-Spider-Man-v06---Venom-(2007)-(Digital)-(Asgard-Empire)-003.jpg'),
       require('../assets/images/Ultimate/Ultimate-Spider-Man-v06---Venom-(2007)-(Digital)-(Asgard-Empire)-004.jpg'),
+      require('../assets/images/Ultimate/Ultimate-Spider-Man-v06---Venom-(2007)-(Digital)-(Asgard-Empire)-005.jpg'),
+      require('../assets/images/Ultimate/Ultimate-Spider-Man-v06---Venom-(2007)-(Digital)-(Asgard-Empire)-006.jpg'),
+      require('../assets/images/Ultimate/Ultimate-Spider-Man-v06---Venom-(2007)-(Digital)-(Asgard-Empire)-007.jpg'),
+      require('../assets/images/Ultimate/Ultimate-Spider-Man-v06---Venom-(2007)-(Digital)-(Asgard-Empire)-008.jpg'),
+      require('../assets/images/Ultimate/Ultimate-Spider-Man-v06---Venom-(2007)-(Digital)-(Asgard-Empire)-009.jpg'),
+      require('../assets/images/Ultimate/Ultimate-Spider-Man-v06---Venom-(2007)-(Digital)-(Asgard-Empire)-010.jpg'),
+
+
+
+
+
+
     ],
   },
   // Add more comic books as needed
