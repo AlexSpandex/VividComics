@@ -1,0 +1,70 @@
+{
+    "comics": [
+      {
+        "page": 0,
+        "characters": [
+          {
+            "name": "Narrator",
+            "voice": "en-us-x-tpd-network",
+            "description": "Ultimate Spider-Man Volume #6: Venom"
+          }
+        ]
+      },
+      {
+        "page": 1,
+        "characters": [
+          {
+            "name": "Narrator",
+            "voice": "en-us-x-tpd-network",
+            "description": "SPIDER-MANS ULTIMATE VILLAIN GETS THE ULTIMATE TREATMENT."
+          },
+          {
+            "name": "Narrator2",
+            "voice": "en-us-x-tpd-network",
+            "description": "The bite of a genetically altered spider granted high-school student Parker incredible, arachnid-like powers: strength, agility, a sixth sense and the ability to walk on walls. Now a fledgling superhero, Peter tries to balance a full high-school curriculum, a night job as a designer, and swing time as the misunderstood, web-swinging Spider-Man. After reuniting with childhood friend Eddie, he discovers a secret: his father's black liquid that can transform into a protoplasmic body suit, curing any illness and enhancing the wearer's strength. When Peter tries to continue his father's work, he accidentally gets encased in the murky substance and is rendered nearly unstoppable... at a terrible price. Collecting Ultimate Spider-Man #33-39, written by Brian Michael Bendis (Daredevil) and illustrated by Mark Bagley (Amazing Spider-Man)."
+          }
+        ]
+      },
+      {
+        "page": 2,
+        "characters": [
+          {
+            "name": "Narrator",
+            "voice": "en-us-x-tpd-network",
+            "description": "Ultimate Spider-Man issue #33"
+          }
+        ]
+      },
+      {
+        "page": 3,
+        "characters": [
+          {
+            "name": "Narrator",
+            "voice": "en-us-x-tpd-network",
+            "description": "Origins"
+          }
+        ]
+      },
+      {
+        "page": 4,
+        "characters": [
+          {
+            "name": "Peter",
+            "voice": "en-us-x-iol-network",
+            "description": "She dumped me"
+          }
+        ]
+      },
+      {
+        "page": 5,
+        "characters": [
+          {
+            "name": "Peter",
+            "voice": "en-us-x-iol-network",
+            "description": "I can't believe I screwed this up too. I have officialy screwed up every single part of my life on every conceivable level. I am screwing up at school. Im screwing up at home. I failed Harry. I failed Uncle Ben."
+          }
+        ]
+      }
+    ]
+  }
+  

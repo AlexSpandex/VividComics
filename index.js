@@ -17,7 +17,7 @@ const HomeStack = () => (
   <Stack.Navigator>
     <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
     <Stack.Screen name="Detail" component={DetailScreen} options={{ headerShown: false }} />
-    <Stack.Screen name="ComicBookViewer" component={ComicBookViewer} options={{ headerShown: false }} />
+    <Stack.Screen name="ComicBookViewer" component={ComicBookViewer} options={{ headerShown: true }} />
 
   </Stack.Navigator>
 );
