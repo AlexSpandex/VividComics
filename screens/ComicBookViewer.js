@@ -26,14 +26,10 @@ const ComicBookViewer = ({ route }) => {
     const characters = voicesData.comics.find(comicData => comicData.page === currentPage)?.characters;
   
     if (characters && characters.length > 0) {
-      console.log('Characters:', characters);
-  
       await Promise.all(characters.map(async character => {
         const text = character.description;
         const voice = character.voice;
-        console.log(`Playing: ${text} with voice ${voice}`);
   
-        // Play the text
         await new Promise(resolve => {
           Tts.speak(text, {
             androidParams: {
@@ -43,24 +39,20 @@ const ComicBookViewer = ({ route }) => {
               KEY_PARAM_VOICE_NAME: voice,
             },
             onDone: () => {
-              console.log(`Done: ${text}`);
-              resolve();
+              setTimeout(resolve, 500); // Add a delay before resolving
             },
             onStopped: () => {
-              console.log(`Stopped: ${text}`);
-              resolve();
+              setTimeout(resolve, 500); // Add a delay before resolving
             },
             onError: () => {
-              console.log(`Error: ${text}`);
-              resolve();
+              setTimeout(resolve, 500); // Add a delay before resolving
             },
           });
         });
       }));
-  
-      console.log('All characters played');
     }
   };
+  
   
 
   // Function to stop text-to-speech
