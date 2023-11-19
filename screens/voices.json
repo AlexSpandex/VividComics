@@ -61,8 +61,119 @@
           {
             "name": "Peter",
             "voice": "en-us-x-iol-network",
-            "description": "I can't believe I screwed this up too. I have officialy screwed up every single part of my life on every conceivable level. I am screwing up at school. Im screwing up at home. I failed Harry. I failed Uncle Ben."
+            "description": "I can't believe I screwed this up too. I have officialy screwed up every single part of my life on every conceivable level. I am screwing up at school. Im screwing up at home. I failed Harry. I failed Uncle Ben. The entire world hates me because some idiot was running robbing banks dressed as me."
+          },
+          {
+            "name": "Peter",
+            "voice": "en-us-x-iol-network",
+            "description": "And now the one person in the entire world who knows me-- who really KNOWS me-- doesnt want anything to do with me. And the killer thing is-- everything MJ said about me is right! I should have called her, 'you're right!! you're right MJ!! Just come back and we'll work it out!!'  And instead, I let her walk away."
+          },
+          {
+            "name": "Peter",
+            "voice": "en-us-x-iol-network",
+            "description": "I should call her! I gotta hear her voice!"
+          },
+          {
+            "name": "Peter",
+            "voice": "en-us-x-iol-network",
+            "description": "Maybe if she hears my voice she'll remember she loves me and she'll snap out of this. That's all I have to do-- I'll-- --no, I'll just-- --I'll cal to make sure she's okay! But hang up real quick and--"
+          },
+          {
+            "name": "Peter",
+            "voice": "en-us-x-iol-network",
+            "description": "--no! She'll star 69 me like she did Kong that time."
+          },
+          {
+            "name": "Peter",
+            "voice": "en-us-x-iol-network",
+            "description": "Aggh!! This sucks!!"
           }
+        ]
+      },
+      {
+        "page": 6,
+        "characters": [
+          {
+            "name": "Narrator",
+            "voice": "en-us-x-tpd-network",
+            "description": "SMASSKK"
+          },
+          {
+            "name": "Peter",
+            "voice": "en-us-x-iol-network",
+            "description": "Oh-- oh, no. Oh, no. Broke my phone, Idiot. Now I'm a big, fat loser with no phone."
+          },
+          {
+            "name": "Peter",
+            "voice": "en-us-x-iol-network",
+            "description": "What-- what if she tries to call me? Now I-- aaagghh! She's not going to call me-- she hates me. Stupid!"
+          }
+        ]
+      },
+      {
+        "page": 8,
+        "characters": [
+            {
+                "name": "Peter",
+                "voice": "en-us-x-iol-network",
+                "description": "Dad..."
+            }
+        ]
+      },
+      {
+        "page": 9,
+        "characters": [
+            {
+                "name": "Gwen",
+                "voice": "en-us-x-tpc-local",
+                "description": "Oh my God!! Aunt May that's hilarious!!"
+            },
+            {
+                "name": "Aunt May",
+                "voice": "en-us-x-iob-local",
+                "description": "And listen-- before I know it-- I am up on the scaffolding and I'm screaming at the top of my lungs: 'Jim Hendrix, will you marry me??' and Jimi points his guitar right at me and--"
+            },
+            {
+                "name": "Aunt May",
+                "voice": "en-us-x-iob-local",
+                "description": "--Oh, hi, Peter! We're making cookies. You want to--"
+            },
+            {
+                "name": "Peter",
+                "voice": "en-us-x-iol-network",
+                "description": "I'm okay. Thanks."
+            },
+            {
+                "name": "Aunt May",
+                "voice": "en-us-x-iob-local",
+                "description": "Peter?"
+            },
+            {
+                "name": "Gwen",
+                "voice": "en-us-x-tpc-local",
+                "description": "Jeez. Back break up."
+            },
+            {
+                "name": "Aunt May",
+                "voice": "en-us-x-iob-local",
+                "description": "They'll work it out, Gwen. Mary Jand and he are two peas in a--"
+            },
+            {
+                "name": "Gwen",
+                "voice": "en-us-x-tpc-local",
+                "description": "The buss at school is that was historic."
+            },
+            {
+                "name": "Aunt May",
+                "voice": "en-us-x-iob-local",
+                "description": "I should say something to him."
+            },
+            {
+                "name": "Gwen",
+                "voice": "en-us-x-tpc-local",
+                "description": "Like what?"
+            }
+
         ]
       }
     ]
