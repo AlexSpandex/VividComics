@@ -24,13 +24,15 @@ const ComicBookViewer = ({ route }) => {
   // Function to start text-to-speech
   const startTextToSpeech = async () => {
     const characters = voicesData.comics.find(comicData => comicData.page === currentPage)?.characters;
-
+  
     if (characters && characters.length > 0) {
-      // Use Promise.all to play all characters' descriptions concurrently
+      console.log('Characters:', characters);
+  
       await Promise.all(characters.map(async character => {
         const text = character.description;
         const voice = character.voice;
-
+        console.log(`Playing: ${text} with voice ${voice}`);
+  
         // Play the text
         await new Promise(resolve => {
           Tts.speak(text, {
@@ -40,14 +42,26 @@ const ComicBookViewer = ({ route }) => {
               KEY_PARAM_STREAM: 'STREAM_MUSIC',
               KEY_PARAM_VOICE_NAME: voice,
             },
-            onDone: resolve,
-            onStopped: resolve,
-            onError: resolve,
+            onDone: () => {
+              console.log(`Done: ${text}`);
+              resolve();
+            },
+            onStopped: () => {
+              console.log(`Stopped: ${text}`);
+              resolve();
+            },
+            onError: () => {
+              console.log(`Error: ${text}`);
+              resolve();
+            },
           });
         });
       }));
+  
+      console.log('All characters played');
     }
   };
+  
 
   // Function to stop text-to-speech
   const stopTextToSpeech = () => {
