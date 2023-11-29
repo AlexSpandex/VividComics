@@ -8,7 +8,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './screens/HomeScreen'; 
 import DetailScreen from './screens/DetailScreen'; 
 import ComicBookViewer from './screens/ComicBookViewer';
-
+import AboutMe from './screens/AboutMe';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -18,7 +18,12 @@ const HomeStack = () => (
     <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
     <Stack.Screen name="Detail" component={DetailScreen} options={{ headerShown: false }} />
     <Stack.Screen name="ComicBookViewer" component={ComicBookViewer} options={{ headerShown: true }} />
+  </Stack.Navigator>
+);
 
+const AboutStack = () => (
+  <Stack.Navigator>
+    <Stack.Screen name="About Me" component={AboutMe} options={{ headerShown: true }} />
   </Stack.Navigator>
 );
 
@@ -27,6 +32,7 @@ const App = () => {
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen name="Home" component={HomeStack} options={{ headerShown: false }} />
+        <Tab.Screen name="About Me" component={AboutStack} options={{ headerShown: false }} />
       </Tab.Navigator>
     </NavigationContainer>
   );
