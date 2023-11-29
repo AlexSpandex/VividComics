@@ -12,12 +12,11 @@ import sys
 
 script_url = 'https://raw.githubusercontent.com/bjmckenz/rn-cli-fixup/main/reactnative-setup.py'
 
-script_version = "1.3.3"
+script_version = "1.4.1"
 
 # This script is intended to be run from the root of a React Native project directory.
 
 ### TO DO
-# TODO: Better version of how to fix. Perhaps for each test?
 # TODO: Clean up filenames, envvars, file contents
 # TODO: move data to a file
 # TODO: give revised version of .bashrc/.zshrc
@@ -30,6 +29,7 @@ script_version = "1.3.3"
 # FIXME: https://stackoverflow.com/questions/71365373/software-components-will-not-be-created-automatically-for-maven-publishing-from#:~:text=WARNING%3A%20Software%20Components%20will%20not,use%20the%20new%20publishing%20DSL.
 # FIXME: When running a single thing, turn off modifications
 # FIXME: release section should use proper file reading, not regex
+# TODO: output number of tests and modifications
 
 # ENVIRONMENTY STUFF
 
@@ -122,19 +122,23 @@ script_output_file = 'reactnative-fixup.txt'
 
 kotlinVersion = "1.7.10"
 
+# reanimated adds about 199 chars to the path, and the max length on Windows
+# is 250.
+max_windows_project_path_length = 45
+
 dependencies_to_add = {
     "@react-native-masked-view/masked-view": "^0.3.0",
-    "@react-navigation/drawer": "^6.6.4",
-    "@react-navigation/native": "^6.1.8",
-    "@react-navigation/native-stack": "^6.9.14",
-    "@react-navigation/stack": "^6.3.18",
+    "@react-navigation/drawer": "^6.6.6",
+    "@react-navigation/native": "^6.1.9",
+    "@react-navigation/native-stack": "^6.9.17",
+    "@react-navigation/stack": "^6.3.20",
     "react-native-asset": "^2.1.1",
     "react": "18.2.0",
-    "react-native": "0.72.6",
-    "react-native-gesture-handler": "^2.13.2",
+    "react-native": "0.72.7",
+    "react-native-gesture-handler": "^2.13.4",
     "react-native-reanimated": "^3.5.4",
-    "react-native-safe-area-context": "^4.7.2",
-    "react-native-screens": "^3.25.0"
+    "react-native-safe-area-context": "^4.7.4",
+    "react-native-screens": "^3.27.0"
 }
 
 # Define the contents for universal.json
@@ -341,15 +345,17 @@ counts = {
     'error': 0,
     'info': 0,
     'debug': 0,
+    'howto': 0
 }
 
 
 def print_counts():
-    print('*** ({ver}) Message type counts: {fatal} fatal, {warn} warn, {error} error, {info} info'.format(
+    print('*** ({ver}) Message type counts: {fatal} fatal, {warn} warn, {error} error, {info} info, {howto} fixes'.format(
         fatal=counts['fatal'],
         warn=counts['warn'],
         error=counts['error'],
         info=counts['info'],
+        howto=counts['howto'],
         ver=script_version))
 
 
@@ -363,6 +369,10 @@ def report(type, message, include_line=True):
         return
 
     caller_line = currentframe().f_back.f_lineno
+
+    if type.lower() == 'howto':
+        print("vvvvvv HOW TO FIX vvvvvv\n{message}\n^^^^^^ HOW TO FIX ^^^^^".format(message=message.strip()))
+        return
 
     message += ' [{ln}]'.format(ln=caller_line) if include_line else ''
     print('{type}: {message}'.format(type=type.upper(), message=message))
@@ -550,7 +560,8 @@ def safe_exists(path):
 
 
 def paths_equal(path1, path2):
-    os.path.normcase(path1) == os.path.normcase(path2)
+    #print("comparing {p1} to {p2}".format(p1=path1,p2=path2))
+    return os.path.normcase(path1) == os.path.normcase(path2)
 
 def current_version_of_npm_package(pkg):
     url = 'https://unpkg.com/{pkg}/package.json'.format(pkg=pkg)
@@ -756,7 +767,7 @@ def is_android_sdk_installed():
     report('fatal', 'ANDROID_SDK_ROOT variable is set but directory does not exist. Set it CORRECTLY in your environment.')
     return False
 
-#@system_test({'prereqs':['is_android_sdk_installed']})
+@system_test({'prereqs':['is_android_sdk_installed']})
 def are_paths_valid():
     existing_path = os.environ.get('PATH').split(path_variable_separator)
     found_platform_tools = False
@@ -821,7 +832,7 @@ def is_project_under_git():
         return True
 
     report('fatal', 'This project is NOT under git management (!)')
-    report('info', 'do "git init", "git add ." and "git commit -m\'Initial commit\'"')
+    report('howto', "$ git init\n$ git add .\n$ git commit -m\'Initial commit\'")
     return False
 
 @project_test({'prereqs':['is_npm_installed']})
@@ -830,7 +841,23 @@ def is_npm_project():
         report('info', 'We are in an NPM project.')
         return True
     report('fatal', 'package.json does not exist. Run this from an initialized project directory.')
+    report('howto','''
+* Open a terminal/cmd window in a directory where you keep all your projects.
+$ npx react-native@latest init MyProject
+* Open that folder in VS Code.
+''')
     return False
+
+@project_test()
+def is_project_path_too_long():
+    if running_on_windows and len(os.getcwd()) > max_windows_project_path_length:
+        report('fatal', 'Project path is too long. Move it to a shorter path.')
+        report('howto','''
+* Move this directory to a shorter path, such as C:\SOURCE
+* Be sure to move rn-cli-fixup to the same directory.
+''')
+        return False
+    return True
 
 @project_test()
 def is_react_native_project():
@@ -873,7 +900,7 @@ def is_cocoapods_present():
         return True
 
     report('fatal', 'cocoapods not found.')
-    report('info','Install it via: brew install cocoapods')
+    report('howto', '$ brew install cocoapods')
 
     return False
 
@@ -891,7 +918,7 @@ def is_xcode_selected():
         return True
 
     report('fatal', 'It does not appear that Xcode is selected.')
-    report('info','Select it via: sudo xcode-select -s /Applications/Xcode.app')
+    report('howto','$ sudo xcode-select -s /Applications/Xcode.app')
 
     return False
 
@@ -906,7 +933,7 @@ def is_watchman_present():
         return True
 
     report('fatal', 'watchman command not found. Set it in your path).')
-    report('info','It is easiest to do: brew install watchman (and make sure /opt/homebrew/bin is in your PATH)')
+    report('howto','$ brew install watchman')
 
     return False
 
@@ -921,7 +948,7 @@ def is_ios_deploy_present():
         return True
 
     report('fatal', 'ios-deploy command not found. Set it in your path).')
-    report('info','It is easiest to do: brew install ios-deploy (and make sure /opt/homebrew/bin is in your PATH)')
+    report('howto','$ brew install ios-deploy')
 
     return False
 
@@ -933,7 +960,7 @@ def is_adb_present():
 
     report('fatal', 'adb command not found. Set it in your path (install platform-tools if needed).')
     if not running_on_windows:
-        report('info','On Mac, it is easiest to do: brew install android-platform-tools (and make sure /opt/homebrew/bin is in your PATH)')
+        report('howto','$ brew install android-platform-tools')
     return False
 
 @system_test({'prereqs':['is_java_in_path']})
@@ -972,8 +999,13 @@ def is_bundletool_installed():
 
     report('fatal', 'Current version of bundletool.jar does not exist. Please specify the correct path to it.')
     report('info', 'The current (known) version is {bt_jar}'.format(bt_jar=bt_jar))
-    report('info', 'Download it from {bt_loc}'.format(bt_loc=bt_loc))
-    report('info', 'And copy it to {bt_dir}'.format(bt_dir=bt_dir))
+    report('howto', '''
+* Browse to {bt_loc}
+* Click on 'Releases'
+* Click on '{bt_jar}'
+* Save it in Downloads
+* Copy it to {bt_dir}
+'''.format(bt_jar=bt_jar,bt_dir=bt_dir,bt_loc=bt_loc))
     return False
 
 @system_test({'prereqs':['is_npm_installed']})
@@ -1047,6 +1079,13 @@ def is_mac_java_version_set():
         return True
 
     report('FATAL','Environment var JAVA_VERSION must be set to {jv} (probably in ~/.zshrc)'.format(jv=expected_java_version))
+    report('howto','''
+* Add this line to ~/.zshrc (or ~/.bashrc)
+----
+export JAVA_VERSION=20.0.2
+----
+* Restart Terminal and VS Code.
+''')
     return False
 
 # BEGIN MODIFICATIONS
