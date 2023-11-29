@@ -19,19 +19,22 @@ VividComics isn't just another comic reader—it's a comic experience like no ot
 ## Pages:
 
 ### Home Page
-![Home Page](/Users/alejandroramos/VividComicsWorks/assets/github-images/Home.png)
+![Home Page](<img width="311" alt="Home" src="https://github.com/AlexSpandex/VividComics/assets/78000095/ca5ae611-0e9a-4492-9895-79ffda56ddf5">)
 
 
 ### About Page
-![About Page](/Users/alejandroramos/VividComicsWorks/assets/github-images/AboutMe.png)
+![About Page](<img width="312" alt="AboutMe" src="https://github.com/AlexSpandex/VividComics/assets/78000095/0846fd96-4306-4f7e-a284-99a8c71acd7f">
+)
 
 
 ### Description
-![Description Page](/Users/alejandroramos/VividComicsWorks/assets/github-images/Description.png)
+![Description Page](<img width="314" alt="Description" src="https://github.com/AlexSpandex/VividComics/assets/78000095/de57919c-504a-4427-8862-85d62d94cdab">
+)
 
 
 ### Text-to-Speech Comic Page
-![Text to Speech Comic Page](/Users/alejandroramos/VividComicsWorks/assets/github-images/TextToSpeechComic.png)
+![Text to Speech Comic Page](<img width="314" alt="TextToSpeechComic" src="https://github.com/AlexSpandex/VividComics/assets/78000095/a5e7329e-a56a-4132-a4b5-663584250471">
+)
 
 
 ## Installation
