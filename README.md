@@ -19,7 +19,8 @@ VividComics isn't just another comic reader—it's a comic experience like no ot
 ## Pages:
 
 ### Home Page
-![Home Page](<img width="311" alt="Home" src="https://github.com/AlexSpandex/VividComics/assets/78000095/ca5ae611-0e9a-4492-9895-79ffda56ddf5">)
+![Home Page](https://github.com/AlexSpandex/VividComics/assets/78000095/ca5ae611-0e9a-4492-9895-79ffda56ddf5)
+
 
 
 ### About Page
